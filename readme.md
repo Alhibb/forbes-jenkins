@@ -92,14 +92,18 @@ This is where you define what commands Jenkins should execute when a build is tr
     **Example 1: Just Fetch and Print Latest Commit**
 
     ```bash
-    echo "--- Fetching latest code ---"
-    # This command will use the credentials configured in SCM to pull changes
-    git pull origin ${GIT_BRANCH##*/}
+    echo --- Fetching latest code ---
 
-    echo "--- Build Information ---"
-    echo "Branch being built: ${GIT_BRANCH##*/}"
-    echo "Latest commit hash: $(git rev-parse HEAD)"
-    echo "Build Number: ${BUILD_NUMBER}"
+    REM Jenkins already checked out the latest commit
+
+    echo --- Build Information ---
+    echo Branch being built: origin/main
+
+    FOR /F "delims=" %%G IN ('git rev-parse HEAD') DO SET COMMIT_HASH=%%G
+    echo Latest commit hash: %COMMIT_HASH%
+
+    echo Build Number: %BUILD_NUMBER%
+
     ```
 
     **Example 2: Fetch, Build (e.g., using Maven)**
