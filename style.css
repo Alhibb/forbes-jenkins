@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #0A74DA;
+    --secondary-color: #4CAF50;
+    --accent-color: #FFC107;
+    --background-color: #f4f7f6;
+    --card-background: #ffffff;
+    --text-color: #d6cdcd;
+    --heading-color: #111;
+    --footer-background: #2c3e50;
+    --footer-text-color: #ecf0f1;
+    --code-background: #e0e0e0;
+    --code-text-color: #333;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.main-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.main-header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: -1px;
+    opacity: 0; /* Start invisible for animation */
+}
+
+.main-header .subtitle {
+    font-size: 1.3em;
+    font-weight: 400;
+    opacity: 0; /* Start invisible for animation */
+}
+
+.blog-post {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+.blog-post h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: 600;
+    opacity: 0; /* Start invisible for animation */
+}
+
+.blog-post h3 {
+    color: var(--heading-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    font-weight: 600;
+    opacity: 0; /* Start invisible for animation */
+}
+
+.blog-post p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    opacity: 0; /* Start invisible for animation */
+}
+
+.blog-post p strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.topic-block { /* Renamed from note-block to be more semantic */
+    background-color: #ce1b1b;
+    border-left: 5px solid var(--primary-color);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    opacity: 0; /* Start invisible for animation */
+}
+
+.topic-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.topic-block h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.5em;
+    opacity: 0; /* Start invisible for animation */
+}
+
+.topic-block p {
+    font-size: 1.05em;
+    opacity: 0; /* Start invisible for animation */
+    margin-bottom: 0;
+}
+
+code {
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--code-background);
+    color: var(--code-text-color);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+pre code {
+    display: block;
+    padding: 15px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.aws-notes {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px dashed #ccc;
+}
+
+.aws-notes h2 {
+    color: var(--secondary-color);
+    border-bottom-color: var(--secondary-color);
+    opacity: 0; /* Start invisible for animation */
+}
+
+.aws-notes ul {
+    list-style: none;
+    padding: 0;
+}
+
+.aws-notes li {
+    background: #eef7ee;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 4px;
+    opacity: 0; /* Start invisible for animation */
+}
+
+.aws-notes li:nth-child(odd) {
+    background: #29c929;
+}
+
+.aws-notes li:last-child {
+    margin-bottom: 0;
+}
+
+.main-footer {
+    background-color: var(--footer-background);
+    color: var(--footer-text-color);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Apply animations ONLY when the element becomes visible */
+.main-header h1.is-visible,
+.main-header .subtitle.is-visible,
+.blog-post h2.is-visible,
+.blog-post h3.is-visible,
+.topic-block.is-visible,
+.topic-block h3.is-visible, /* If you want h3s within blocks to animate separately */
+.topic-block p.is-visible, /* If you want paras within blocks to animate separately */
+.aws-notes h2.is-visible,
+.aws-notes li.is-visible {
+    opacity: 1; /* Ensure they are visible */
+}
+
+/* Specific animation classes */
+.main-header h1.is-visible { animation: fadeInDown 1s ease-out forwards; }
+.main-header .subtitle.is-visible { animation: fadeInUp 1s ease-out 0.5s forwards; }
+
+.blog-post h2.is-visible { animation: fadeInLeft 0.8s ease-out forwards; }
+
+.blog-post h3.is-visible { animation: fadeInUp 0.7s ease-out forwards; }
+
+.topic-block.is-visible { animation: fadeInUp 0.7s ease-out forwards; }
+.topic-block h3.is-visible { animation: none; } /* Prevent double animation if block animates */
+.topic-block p.is-visible { animation: none; }    /* Prevent double animation if block animates */
+
+
+.aws-notes h2.is-visible { animation: fadeInRight 0.8s ease-out forwards; }
+
+.aws-notes li.is-visible { animation: fadeInUp 0.7s ease-out forwards; }
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .container { width: 95%; }
+    .main-header h1 { font-size: 2em; }
+    .main-header .subtitle { font-size: 1em; }
+    .blog-post { padding: 20px; }
+    .blog-post h2 { font-size: 1.8em; }
+    .blog-post h3 { font-size: 1.3em; }
+    .topic-block { padding: 15px; }
+    .topic-block h3 { font-size: 1.2em; }
+    .topic-block p { font-size: 1em; }
+}
+
+@media (max-width: 480px) {
+    .container { width: 95%; }
+    .main-header { padding: 30px 0; }
+    .main-header h1 { font-size: 1.8em; }
+    .main-header .subtitle { font-size: 0.9em; }
+    .blog-post { padding: 15px; }
+    .blog-post h2 { font-size: 1.6em; }
+    .blog-post h3 { font-size: 1.2em; }
+    .topic-block h3 { font-size: 1.1em; }
+    .topic-block p { font-size: 1em; }
+}
