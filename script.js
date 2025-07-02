@@ -1,19 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const element = entry.target;
-                element.classList.add('is-visible');
-                observer.unobserve(element);
+    const navLinks = document.querySelectorAll('nav a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
-    }, {
-        threshold: 0.1
     });
 
-    const animatedElements = document.querySelectorAll('.main-header h1, .main-header .subtitle, .blog-post h2, .blog-post h3, .note-block, .note-block h3, .note-block p, .aws-notes h2, .aws-notes li');
-    animatedElements.forEach(el => {
-        el.classList.remove('is-visible');
-        observer.observe(el);
-    });
+    const headerLogo = document.querySelector('.animated-logo');
+    const heroImage = document.querySelector('.animated-image');
+
+    if (headerLogo) {
+        headerLogo.style.animation = 'bounceIn 1s ease-out forwards';
+    }
+    if (heroImage) {
+        heroImage.style.animation = 'floatImage 4s ease-in-out infinite';
+    }
 });
